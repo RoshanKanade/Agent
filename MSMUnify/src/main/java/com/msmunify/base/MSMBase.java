@@ -21,7 +21,7 @@ public class MSMBase
 	{
 		try {
 			prop=new Properties();
-			FileInputStream ip=new FileInputStream("C:\\Users\\funak\\AutomationTester\\MSMUnify\\config.properties");
+			FileInputStream ip=new FileInputStream("C:\\Users\\funak\\git\\Agent\\MSMUnify\\target\\config.properties");
 			prop.load(ip);
 		}
 		catch (Exception e) {
@@ -35,8 +35,8 @@ public class MSMBase
 		if(browsewName.equals("chrome")) 
 		{
 			
-			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\funak\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\funak\\git\\Agent\\MSMUnify\\target\\chromedriver.exe");
+			//WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 		}
@@ -46,7 +46,7 @@ public class MSMBase
 			driver=new FirefoxDriver();
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		
 		driver.get(prop.getProperty("url"));
 
